@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      String
+  createdAt DateTime @default(now())
+}
+
+model Report {
+  id              String   @id @default(uuid())
+  ngoId           String
+  month           String
+  peopleHelped    Int      @default(0)
+  eventsConducted Int      @default(0)
+  fundsUtilized   Float    @default(0)
+  createdAt       DateTime @default(now())
+
+  @@unique([ngoId, month], name: "ngoId_month")
+}
+
+
+model Job {
+  id            String   @id @default(uuid())
+  status        String
+  totalRows     Int
+  processedRows Int
+  failedRows    Int
+  createdAt     DateTime @default(now())
+}
+
+model JobFailure {
+  id        String   @id @default(uuid())
+  jobId     String
+  rowNumber Int
+  error     String
+  createdAt DateTime @default(now())
+}
