@@ -2,8 +2,7 @@
 
 A full‑stack application to manage NGO monthly reports, CSV uploads, background jobs, and dashboards.
 
-## Live Link
-## [Click Here](https://ngoimpact.netlify.app)
+## Live Link  [Click Here](https://ngoimpact.netlify.app)
 
 
 ---
@@ -250,6 +249,7 @@ Solution: Ensure all numeric fields are provided or defaults are set in schema.
 * Export reports to Excel
 * Email notifications on job completion
 * NGO‑wise analytics
+
 
 
 
